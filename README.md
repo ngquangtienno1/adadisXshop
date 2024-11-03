@@ -1,4 +1,4 @@
-Cấu trúc thư mục
+<!-- Cấu trúc thư mục
 Admin
 uploads --- Folder lưu trữ file upload
 controllers --- Xử lý logic
@@ -15,4 +15,4 @@ controllers --- Xử lý logic
 models --- Thao tác cơ sở dữ liệu
 views --- Hiển thị
 index.php --- Điều hướng
-.editorconfig --- config vscode
+.editorconfig --- config vscode -->
