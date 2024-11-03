@@ -228,14 +228,13 @@ CREATE TABLE `khuyen_mais` (
 --
 
 CREATE TABLE `lien_hes` (
-  `lien_he_id` int NOT NULL,
+  `id` int NOT NULL,
   `ten` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `chu_de` varchar(255) DEFAULT NULL,
-  `tin_nhan` text,
-  `ngay_tao` timestamp NULL DEFAULT NULL,
-  `banner_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `so_dien_thoai` varchar(12) DEFAULT NULL,
+  `ngay_tao` timestamp NULL DEFAULT NULL
+) 
+
 
 -- --------------------------------------------------------
 

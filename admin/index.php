@@ -9,10 +9,10 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 // Require toàn bộ file Controllers
 require_once 'controllers/DashboardController.php';
 require_once 'controllers/DanhMucController.php';
-
+require_once 'controllers/LienHeController.php';
 // Require toàn bộ file Models
 require_once './models/DanhMuc.php';
-
+require_once 'models/LienHe.php';
 // Route
 $act = $_GET['act'] ?? '/';
 
@@ -30,4 +30,13 @@ match ($act) {
 
     // Default cho các trường hợp không khớp
     // default => throw new Exception("Unhandled case for action: $act"),
+
+     //Quản lý liên hệ
+     'lien-he'           => (new LienHeController())->index(),
+     'form-add-lien-he'  => (new LienHeController())->create(),
+     'them-lien-he'      => (new LienHeController())->store(),
+     'form-update-lien-he'      => (new LienHeController())->edit(),
+     'sua-lien-he'       => (new LienHeController())->update(),
+     'xoa-lien-he'       => (new LienHeController())->destroy(),
+ 
 };
