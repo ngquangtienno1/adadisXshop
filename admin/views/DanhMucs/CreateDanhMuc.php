@@ -33,13 +33,10 @@
         require_once "views/layouts/siderbar.php";
         ?>
 
-        <!-- Left Sidebar End -->
-        <!-- Vertical Overlay-->
+        
         <div class="vertical-overlay"></div>
 
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
+
         <div class="main-content">
 
             <div class="page-content">
@@ -123,8 +120,8 @@
                                                     <div class="col-lg-12">
                                                         <div class="text-end">
 
-                                                            <button type="reset" class="btn btn-secondary">Reset</button>
-                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                            <button type="reset" class="btn btn-secondary">Nhập lại</button>
+                                                            <button type="submit" class="btn btn-primary">Tạo</button>
                                                         </div>
                                                     </div>
                                                 </div>
