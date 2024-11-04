@@ -330,15 +330,13 @@ CREATE TABLE `thanh_toans` (
 -- Cấu trúc bảng cho bảng `tin_tucs`
 --
 
-CREATE TABLE `tin_tucs` (
-  `tin_tuc_id` int NOT NULL,
-  `tieu_de` varchar(255) DEFAULT NULL,
-  `noi_dung` text,
-  `tac_gia` varchar(255) DEFAULT NULL,
-  `ngay_xuat_ban` date DEFAULT NULL,
-  `ngay_tao` timestamp NULL DEFAULT NULL,
-  `banner_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE tin_tucs (
+    tin_tuc_id INT PRIMARY KEY AUTO_INCREMENT,
+    tieu_de VARCHAR(255) NOT NULL,
+    noi_dung TEXT NOT NULL,
+    ngay_xuat_ban DATE,
+    hinh_anh TEXT
+); ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
