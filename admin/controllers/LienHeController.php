@@ -34,7 +34,7 @@ class LienHeController
             $email = $_POST['email'];
             $so_dien_thoai = $_POST['so_dien_thoai'];
             $ngay_tao = $_POST['ngay_tao'];
-
+            $trang_thai = $_POST['trang_thai'];
     
             // validate
             $errors = [];
@@ -51,9 +51,12 @@ class LienHeController
             if(empty($ngay_tao)){
                 $errors['ngay_tao'] = 'Bạn phải nhập ngày tạo liên hệ' ;
             }
+            if(empty($trang_thai)){
+                $errors['trang_thai'] = 'Bạn phải nhập ngày tạo liên hệ' ;
+            }
             if (empty($errors)) {
                 # nếu không có lỗi thì thêm dữ liệu
-                $this->modelLienHe->postData($ten, $email, $so_dien_thoai, $ngay_tao);
+                $this->modelLienHe->postData($ten, $email, $so_dien_thoai, $ngay_tao, $trang_thai);
                 unset($_SESSION['errors']);
                 header('Location: ?act=lien-he');
                 exit();
@@ -89,6 +92,7 @@ class LienHeController
             $email = $_POST['email'];
             $so_dien_thoai = $_POST['so_dien_thoai'];
             $ngay_tao = $_POST['ngay_tao'];
+            $trang_thai = $_POST['trang_thai'];
             // var_dump($email)
 
             // validate
@@ -106,9 +110,12 @@ class LienHeController
             if(empty($ngay_tao)){
                 $errors['ngay_tao'] = 'Bạn phải nhập ngày tạo liên hệ' ;
             }
+            if(empty($trang_thai)){
+                $errors['trang_thai'] = 'Bạn phải nhập ngày tạo liên hệ' ;
+            }
             if (empty($errors)) {
                 # nếu không có lỗi thì thêm dữ liệu
-                $this->modelLienHe->updateData($id, $ten, $email, $so_dien_thoai, $ngay_tao);
+                $this->modelLienHe->updateData($id, $ten, $email, $so_dien_thoai, $ngay_tao,$trang_thai);
                 unset($_SESSION['errors']);
                 header('Location: ?act=lien-he');
                 exit();

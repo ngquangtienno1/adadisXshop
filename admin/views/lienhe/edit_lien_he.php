@@ -115,6 +115,17 @@
                                                                 <?=!empty($_SESSION['errors']['ngay_tao']) ? $_SESSION['errors']['ngay_tao'] : ''?>
                                                             </span>
                                                         </div>
+                                                        <div class="col-lg-4">
+                                                        <div class="mb-3">
+                                                            <label for="ForminputState" class="form-label">Trạng thái</label>
+                                                            <select name="trang_thai" id="ForminputState" class="form-select" value="<?= $lienHe['trang_thai'] ?>">
+                                                                <option selected disabled>Chọn trạng thái</option>
+                                                                <option value="1" <?= $lienHe['trang_thai'] == 1 ? 'selected' : '' ?>>Đăng</option>
+                                                                <option value="2" <?= $lienHe['trang_thai'] == 2 ? 'selected' : '' ?>>Không đăng</option>
+                                                            </select>
+                                                           
+                                                        </div>
+                                                    </div>
                                                     </div>
                                                     <!--end col-->
                                                     

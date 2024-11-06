@@ -88,6 +88,8 @@
                                                         <th scope="col">Email</th>
                                                         <th scope="col">Số điện thoại</th>
                                                         <th scope="col">Ngày tạo</th>
+                                                        <th scope="col">Trạng thái</th>
+
                                                         <th scope="col">Action</th>
                                                         
                                                     </tr>
@@ -101,6 +103,17 @@
                                                         <td><?=$lienhe['email']?></td>
                                                         <td><?=$lienhe['so_dien_thoai']?></td>
                                                         <td><?=$lienhe['ngay_tao']?></td>
+                                                        <td><?php
+                                                                    if ($lienhe['trang_thai'] == 1) { ?>
+                                                                        <span class="badge bg-success">Đăng</span>
+                                                                    <?php } else { ?>
+                                                                        <span class="badge bg-danger">Không đăng</span>
+
+                                                                    <?php }
+                                                                    ?>
+
+
+                                                                </td>
                                                         <td>
                                                             <div class="hstack gap-3 flex-wrap">
                                                                 <a href="?act=form-update-lien-he&lien_he_id=<?=$lienhe['id']?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
