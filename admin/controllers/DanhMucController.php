@@ -138,5 +138,7 @@ class DanhMucController
         }
     }
 
+    // test 123 update
+
     
 }

@@ -141,6 +141,3 @@ class LienHeController
 
 }
 }
-// <?php>
-// <html>
-// </html>
