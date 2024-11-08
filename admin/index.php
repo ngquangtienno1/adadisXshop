@@ -10,9 +10,13 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 require_once 'controllers/DashboardController.php';
 require_once 'controllers/DanhMucController.php';
 require_once 'controllers/LienHeController.php';
+require_once 'controllers/KhuyenMaiController.php';
+
 // Require toàn bộ file Models
 require_once './models/DanhMuc.php';
 require_once 'models/LienHe.php';
+require_once 'models/KhuyenMai.php';
+
 // Route
 $act = $_GET['act'] ?? '/';
 
@@ -38,5 +42,13 @@ match ($act) {
      'form-update-lien-he'      => (new LienHeController())->edit(),
      'sua-lien-he'       => (new LienHeController())->update(),
      'xoa-lien-he'       => (new LienHeController())->destroy(),
+
+     //quản lí khuyến mãi
+     'khuyen-mai'                   => (new KhuyenMaiController())->index(),
+     'form-add-khuyen-mai'          => (new KhuyenMaiController())->create(),
+     'them-khuyen-mai'              => (new KhuyenMaiController())->store(),
+     'form-update-khuyen-mai'       => (new KhuyenMaiController())->edit(),
+     'sua-khuyen-mai'               => (new KhuyenMaiController())->update(),
+     'xoa-khuyen-mai'               => (new KhuyenMaiController())->destroy(),
  
 };
