@@ -71,11 +71,7 @@
                     Tạo danh mục
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="?act=form-sua-danh-muc" class="nav-link" data-key="t-nestable-list">
-                    Sửa danh mục
-                </a>
-            </li>
+           
         </ul>
     </div>
 </li>
@@ -97,16 +93,32 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a href="?act=form-update-lien-he" class="nav-link" data-key="t-nestable-list">
-                    Sửa liên hệ
-                </a>
-            </li>
+          
         </ul>
     </div>
 </li>
 
+<li class="nav-item">
+    <a class="nav-link menu-link" href="#sidebarKhuyenMai" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarKhuyenMai">
+        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lý khuyến mãi</span>
+    </a>
+    <div class="collapse menu-dropdown" id="sidebarKhuyenMai">
+        <ul class="nav nav-sm flex-column">
+            <li class="nav-item">
+                <a href="?act=khuyen-mai" class="nav-link" data-key="t-sweet-alerts">
+                    Xem khuyến mãi
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="?act=form-add-khuyen-mai" class="nav-link" data-key="t-nestable-list">
+                    Tạo khuyến mãi
+                </a>
+            </li>
 
+           
+        </ul>
+    </div>
+</li>
                
 
 
