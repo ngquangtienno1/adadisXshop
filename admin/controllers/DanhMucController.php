@@ -54,10 +54,8 @@ class DanhMucController
                 $this->modelDanhMuc->CreateCate($ten_danh_muc, $mo_ta, $trang_thai);
                 unset($_SESSION['Error']);
                 // Thêm đoạn mã HTML và JavaScript để hiển thị thông báo
-                echo "<script>
-                        alert('Thêm danh mục thành công!');
-                        window.location.href = '?act=danh-mucs';
-                      </script>";
+                // echo "Thêm thành công";
+                header('Location: ?act=danh-mucs');
                 exit();
             }else{
                 $_SESSION['Error'] = $Error;
@@ -74,7 +72,7 @@ class DanhMucController
      // Hiển thị form update
     public function ShowUpdate() {
 
-        $id = $_GET['id'];
+        $id = $_GET['danh_muc_id'];
         $danhMucw = $this->modelDanhMuc->DetailUpdate($id);
 
         // var_dump($danhMucw);
@@ -85,7 +83,7 @@ class DanhMucController
      public function handleUpdate() {
         if($_SERVER['REQUEST_METHOD']=='POST'){
  
-            $id = $_POST['id_danh_muc'];
+            $id = $_POST['id'];
             $ten_danh_muc = $_POST['ten_danh_muc'];
             $mo_ta = $_POST['mo_ta'];
             $trang_thai = $_POST['trang_thai'];
@@ -107,10 +105,8 @@ class DanhMucController
                 $this->modelDanhMuc->UpdateCate($id,$ten_danh_muc, $mo_ta, $trang_thai);
                 unset($_SESSION['Error']);
                 // Thêm đoạn mã HTML và JavaScript để hiển thị thông báo
-                echo "<script>
-                        alert('Update danh mục thành công!');
-                        window.location.href = '?act=danh-mucs';
-                      </script>";
+                // echo "Thêm thành công";
+                header('Location: ?act=danh-mucs');
                 exit();
             }else{
                 $_SESSION['Error'] = $Error;
@@ -129,14 +125,17 @@ class DanhMucController
     public function Delete() {
 
         if($_SERVER['REQUEST_METHOD']=='POST'){
-            $id = $_POST['id_danh_muc'];
+            $id = $_POST['danh_muc_id'];
             // var_dump($id);
 
             $deleteDanhmuc = $this->modelDanhMuc->deleteData($id);
+            // echo'them thna ckgn';
             header('Location: ?act=danh-mucs'); // Sửa lại khoảng trắng
             exit();
         }
     }
+
+    // test 123 update
 
     
 }

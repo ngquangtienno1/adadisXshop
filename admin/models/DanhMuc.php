@@ -55,13 +55,13 @@ class DanhMuc{
     public function deleteData($id) {
         try {
             // Sử dụng câu lệnh SQL với tham số placeholder
-            $sql = "DELETE FROM danh_muc_san_phams WHERE id_danh_muc = :id_danh_muc";
+            $sql = "DELETE FROM danh_muc_san_phams WHERE id = :id";
     
             // Chuẩn bị câu lệnh
             $stmt = $this->conn->prepare($sql);
     
             // Gán giá trị cho tham số
-            $stmt->bindParam(':id_danh_muc', $id);
+            $stmt->bindParam(':id', $id);
     
             // Thực thi câu lệnh
             $stmt->execute();
@@ -78,13 +78,13 @@ class DanhMuc{
     public function DetailUpdate($id) {
         try {
             // Sử dụng câu lệnh SQL với tham số placeholder
-            $sql = "SELECT * FROM danh_muc_san_phams WHERE id_danh_muc = :id_danh_muc";
+            $sql = "SELECT * FROM danh_muc_san_phams WHERE id = :id";
     
             // Chuẩn bị câu lệnh
             $stmt = $this->conn->prepare($sql);
     
             // Gán giá trị cho tham số
-            $stmt->bindParam(':id_danh_muc', $id);
+            $stmt->bindParam(':id', $id);
     
             // Thực thi câu lệnh
             $stmt->execute();
@@ -103,7 +103,7 @@ class DanhMuc{
             // Sử dụng câu lệnh UPDATE để cập nhật dữ liệu
             $sql = "UPDATE danh_muc_san_phams 
                     SET ten_danh_muc = :ten_danh_muc, mo_ta = :mo_ta, trang_thai = :trang_thai 
-                    WHERE id_danh_muc = :id_danh_muc";
+                    WHERE id = :id";
             
             $stmt = $this->conn->prepare($sql);
             
@@ -111,7 +111,7 @@ class DanhMuc{
             $stmt->bindParam(':ten_danh_muc', $ten_danh_muc);
             $stmt->bindParam(':mo_ta', $mo_ta);
             $stmt->bindParam(':trang_thai', $trang_thai);
-            $stmt->bindParam(':id_danh_muc', $id);
+            $stmt->bindParam(':id', $id);
             
             // Thực hiện câu lệnh
             $stmt->execute();
