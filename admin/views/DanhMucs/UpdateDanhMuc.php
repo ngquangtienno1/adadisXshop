@@ -86,9 +86,9 @@
 
 
 
-                                            <form action="?act=sua-danh-muc" method="post" enctype="multipart/form-data">
+                                            <form action="?act=sua-danh-muc" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="id" value="<?= $danhMucw['id'] ?>">
                                                 <div class="row g-3">
-
                                                     <div class="col-lg-4">
                                                         <div class="form-floating">
                                                             <input type="text" class="form-control" name="ten_danh_muc" value="<?= $danhMucw['ten_danh_muc'] ?>">
@@ -106,25 +106,21 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-lg-4">
-                                                        <div class="form-floating">
-                                                            <select class="form-select" name="trang_thai">
-                                                                <option selected disabled>Chọn trạng thái</option>
-                                                                <option value="1" <?= ($danhMucw['trang_thai'] == 1) ? 'selected' : '' ?>>Hiển thị</option>
-                                                                <option value="2" <?= ($danhMucw['trang_thai'] == 2) ? 'selected' : '' ?>>Không hiển thị</option>
-                                                            </select>
-
-                                                            <label for="floatingSelect">Trạng thái</label>
-
-                                                            <span class="text-danger">
-                                                                <?= !empty($_SESSION['Error']['trang_thai']) ? $_SESSION['Error']['trang_thai'] : '' ?>
-                                                            </span>
+                                                    <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="ForminputState" class="form-label">Trạng thái</label>
+                                                                <select name="trang_thai" id="ForminputState" class="form-select" value="<?= $danhMucw['trang_thai'] ?>">
+                                                                    <option selected disabled>Chọn trạng thái</option>
+                                                                    <option value="1">Đăng </option>
+                                                                    <option value="2">Không đăng</option>
+                                                                </select>
+                                                                <span class="text-danger">
+                                                                    <?= !empty($_SESSION["errors"]['trang_thai']) ? $_SESSION["errors"]['trang_thai'] : '' ?>
+                                                                </span>
+                                                            </div>
                                                         </div>
-                                                    </div>
                                                     <div class="col-lg-12">
-                                                        <div class="text-end">
-                                                            <input type="hidden" name="id_danh_muc" value="<?= $danhMucw['id_danh_muc'] ?>">
-                                                            <button type="reset" class="btn btn-secondary">Reset</button>
+                                                        <div class="text-center">
                                                             <button type="submit" class="btn btn-primary">Submit</button>
                                                         </div>
                                                     </div>

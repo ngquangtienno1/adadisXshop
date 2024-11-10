@@ -78,7 +78,7 @@
 
 <li class="nav-item">
     <a class="nav-link menu-link" href="#sidebarLienHe" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLienHe">
-        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lý liên hệ</span>
+        <i class="ri-contacts-line"></i> <span data-key="t-advance-ui">Quản lý liên hệ</span>
     </a>
     <div class="collapse menu-dropdown" id="sidebarLienHe">
         <ul class="nav nav-sm flex-column">
@@ -100,7 +100,7 @@
 
 <li class="nav-item">
     <a class="nav-link menu-link" href="#sidebarKhuyenMai" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarKhuyenMai">
-        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lý khuyến mãi</span>
+        <i class="ri-gift-line"></i> <span data-key="t-advance-ui">Quản lý khuyến mãi</span>
     </a>
     <div class="collapse menu-dropdown" id="sidebarKhuyenMai">
         <ul class="nav nav-sm flex-column">
@@ -119,6 +119,76 @@
         </ul>
     </div>
 </li>
+
+
+<li class="nav-item">
+    <a class="nav-link menu-link" href="#sidebarTinTuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarTinTuc">
+        <i class="ri-news-line"></i> <span data-key="t-advance-ui">Quản lý tin tức</span>
+    </a>
+    <div class="collapse menu-dropdown" id="sidebarTinTuc">
+        <ul class="nav nav-sm flex-column">
+            <li class="nav-item">
+                <a href="?act=tin-tucs" class="nav-link" data-key="t-sweet-alerts">
+                    Xem tin tức
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="?act=form-add-tin-tuc" class="nav-link" data-key="t-nestable-list">
+                    Tạo tin tức
+                </a>
+            </li>
+
+           
+        </ul>
+    </div>
+</li>
+
+
+<li class="nav-item">
+    <a class="nav-link menu-link" href="#sidebarSanPham" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSanPham">
+        <i class="ri-list-line"></i> <span data-key="t-advance-ui">Quản lý sản phẩm</span>
+    </a>
+    <div class="collapse menu-dropdown" id="sidebarSanPham">
+        <ul class="nav nav-sm flex-column">
+            <li class="nav-item">
+                <a href="?act=san-phams" class="nav-link" data-key="t-sweet-alerts">
+                    Xem sản phẩm
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="?act=form-sua-san-pham" class="nav-link" data-key="t-nestable-list">
+                    Tạo sản phẩm
+                </a>
+            </li>
+
+           
+        </ul>
+    </div>
+</li>
+
+
+<li class="nav-item">
+    <a class="nav-link menu-link" href="#sidebarBanner" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarBanner">
+        <i class="ri-list-line"></i> <span data-key="t-advance-ui">Quản lý banner</span>
+    </a>
+    <div class="collapse menu-dropdown" id="sidebarBanner">
+        <ul class="nav nav-sm flex-column">
+            <li class="nav-item">
+                <a href="?act=banners" class="nav-link" data-key="t-sweet-alerts">
+                    Xem banner
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="?act=form-sua-banner" class="nav-link" data-key="t-nestable-list">
+                    Tạo banner
+                </a>
+            </li>
+
+           
+        </ul>
+    </div>
+</li>
+       
                
 
 
