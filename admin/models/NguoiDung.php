@@ -65,7 +65,7 @@ class NguoiDung
             echo "Lỗi: " . $e->getMessage();
         }
     }
-    public function updateData($id,$ten_nguoi_dung, $email, $sdt, $dia_chi,  $mat_khau, $ngay_sinh, $gioi_tinh, $avatar, $vai_tro,$trang_thai, $ngay_tao, $ngay_cap_nhat,  )
+    public function updateData($id, $ten_nguoi_dung, $email, $sdt, $dia_chi,  $mat_khau, $ngay_sinh, $gioi_tinh, $avatar, $vai_tro, $trang_thai, $ngay_tao, $ngay_cap_nhat,  )
     {
         try {
             $sql = 'UPDATE nguoi_dungs SET  ten_nguoi_dung = :ten_nguoi_dung, email = :email, sdt = :sdt, dia_chi = :dia_chi,
