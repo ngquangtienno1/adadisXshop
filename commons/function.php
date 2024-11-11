@@ -22,19 +22,22 @@ function connectDB() {
     }
 }
 //thêm
-function uploadFile($file, $folderUpload){
-    //dat ten cho file khi up load
-    $pathStorage=$folderUpload.time().$file['name'];
+function uploadFile($file,$folderUpload){
+    $pathStorage = $folderUpload . time() . $file['name'];
+
     $from = $file['tmp_name'];
-    $to = PATH_ROOT . $pathStorage;//duong dan chinh xac
-    if(move_uploaded_file($from, $to)){
+    $to = PATH_ROOT . $pathStorage;
+
+    if (move_uploaded_file($from,$to)) {
         return $pathStorage;
     }
     return null;
 }
+//xóa
 function deleteFile($file){
-    $pathDelete = PATH_ROOT . $file;
-    if (file_exists($pathDelete)) {
+    $pathDelete = PATH_ROOT .$file;
+    if(file_exists($pathDelete)){
         unlink($pathDelete);
     }
 }
+

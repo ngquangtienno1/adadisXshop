@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+
 <div class="app-menu navbar-menu">
     <!-- LOGO -->
     <div class="navbar-brand-box">
@@ -54,142 +56,185 @@
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarNguoiDung" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarNguoiDung">
+                    <i class="bi bi-people-fill"></i><span data-key="t-advance-ui">Quản lý người dùng</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarNguoiDung">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="?act=nguoi-dung" class="nav-link" data-key="t-sweet-alerts">
+                                    Danh sách người dùng
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?act=form-add-nguoi-dung" class="nav-link" data-key="t-nestable-list">
+                                    Thêm người dùng
+                                </a>
+                            </li>
 
-               <li class="nav-item">
-    <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
-        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lý danh mục</span>
-    </a>
-    <div class="collapse menu-dropdown" id="sidebarDanhMuc">
-        <ul class="nav nav-sm flex-column">
-            <li class="nav-item">
-                <a href="?act=danh-mucs" class="nav-link" data-key="t-sweet-alerts">
-                   Xem danh sách danh mục
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="?act=form-danh-muc" class="nav-link" data-key="t-nestable-list">
-                    Tạo danh mục
-                </a>
-            </li>
-           
-        </ul>
-    </div>
-</li>
+                        </ul>
+                    </div>
+                </li>
 
-<li class="nav-item">
-    <a class="nav-link menu-link" href="#sidebarLienHe" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLienHe">
-        <i class="ri-contacts-line"></i> <span data-key="t-advance-ui">Quản lý liên hệ</span>
-    </a>
-    <div class="collapse menu-dropdown" id="sidebarLienHe">
-        <ul class="nav nav-sm flex-column">
-            <li class="nav-item">
-                <a href="?act=lien-he" class="nav-link" data-key="t-sweet-alerts">
-                    Xem liên hệ
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="?act=form-add-lien-he" class="nav-link" data-key="t-nestable-list">
-                    Tạo liên hệ
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc">
+                        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lý danh mục</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarDanhMuc">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="?act=danh-mucs" class="nav-link" data-key="t-sweet-alerts">
+                                    Xem danh sách danh mục
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?act=form-danh-muc" class="nav-link" data-key="t-nestable-list">
+                                    Tạo danh mục
+                                </a>
+                            </li>
 
-          
-        </ul>
-    </div>
-</li>
+                        </ul>
+                    </div>
+                </li>
 
-<li class="nav-item">
-    <a class="nav-link menu-link" href="#sidebarKhuyenMai" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarKhuyenMai">
-        <i class="ri-gift-line"></i> <span data-key="t-advance-ui">Quản lý khuyến mãi</span>
-    </a>
-    <div class="collapse menu-dropdown" id="sidebarKhuyenMai">
-        <ul class="nav nav-sm flex-column">
-            <li class="nav-item">
-                <a href="?act=khuyen-mai" class="nav-link" data-key="t-sweet-alerts">
-                    Xem khuyến mãi
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="?act=form-add-khuyen-mai" class="nav-link" data-key="t-nestable-list">
-                    Tạo khuyến mãi
-                </a>
-            </li>
+                
 
-           
-        </ul>
-    </div>
-</li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarLienHe" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLienHe">
+                        <i class="ri-contacts-line"></i> <span data-key="t-advance-ui">Quản lý liên hệ</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarLienHe">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="?act=lien-he" class="nav-link" data-key="t-sweet-alerts">
+                                    Xem liên hệ
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?act=form-add-lien-he" class="nav-link" data-key="t-nestable-list">
+                                    Tạo liên hệ
+                                </a>
+                            </li>
 
 
-<li class="nav-item">
-    <a class="nav-link menu-link" href="#sidebarTinTuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarTinTuc">
-        <i class="ri-news-line"></i> <span data-key="t-advance-ui">Quản lý tin tức</span>
-    </a>
-    <div class="collapse menu-dropdown" id="sidebarTinTuc">
-        <ul class="nav nav-sm flex-column">
-            <li class="nav-item">
-                <a href="?act=tin-tucs" class="nav-link" data-key="t-sweet-alerts">
-                    Xem tin tức
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="?act=form-add-tin-tuc" class="nav-link" data-key="t-nestable-list">
-                    Tạo tin tức
-                </a>
-            </li>
+                        </ul>
+                    </div>
+                </li>
 
-           
-        </ul>
-    </div>
-</li>
-
-
-<li class="nav-item">
-    <a class="nav-link menu-link" href="#sidebarSanPham" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSanPham">
-        <i class="ri-list-line"></i> <span data-key="t-advance-ui">Quản lý sản phẩm</span>
-    </a>
-    <div class="collapse menu-dropdown" id="sidebarSanPham">
-        <ul class="nav nav-sm flex-column">
-            <li class="nav-item">
-                <a href="?act=san-phams" class="nav-link" data-key="t-sweet-alerts">
-                    Xem sản phẩm
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="?act=form-sua-san-pham" class="nav-link" data-key="t-nestable-list">
-                    Tạo sản phẩm
-                </a>
-            </li>
-
-           
-        </ul>
-    </div>
-</li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarKhuyenMai" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarKhuyenMai">
+                        <i class="ri-gift-line"></i> <span data-key="t-advance-ui">Quản lý khuyến mãi</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarKhuyenMai">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="?act=khuyen-mai" class="nav-link" data-key="t-sweet-alerts">
+                                    Xem khuyến mãi
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?act=form-add-khuyen-mai" class="nav-link" data-key="t-nestable-list">
+                                    Tạo khuyến mãi
+                                </a>
+                            </li>
 
 
-<li class="nav-item">
-    <a class="nav-link menu-link" href="#sidebarBanner" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarBanner">
-        <i class="ri-list-line"></i> <span data-key="t-advance-ui">Quản lý banner</span>
-    </a>
-    <div class="collapse menu-dropdown" id="sidebarBanner">
-        <ul class="nav nav-sm flex-column">
-            <li class="nav-item">
-                <a href="?act=banners" class="nav-link" data-key="t-sweet-alerts">
-                    Xem banner
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="?act=form-sua-banner" class="nav-link" data-key="t-nestable-list">
-                    Tạo banner
-                </a>
-            </li>
+                        </ul>
+                    </div>
+                </li>
 
-           
-        </ul>
-    </div>
-</li>
-       
-               
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarTinTuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarTinTuc">
+                        <i class="ri-news-line"></i> <span data-key="t-advance-ui">Quản lý tin tức</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarTinTuc">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="?act=tin-tucs" class="nav-link" data-key="t-sweet-alerts">
+                                    Xem tin tức
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?act=form-add-tin-tuc" class="nav-link" data-key="t-nestable-list">
+                                    Tạo tin tức
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarSanPham" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSanPham">
+                    <i class="bi bi-box-seam"></i> <span data-key="t-advance-ui">Quản lý sản phẩm</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarSanPham">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="?act=san-phams" class="nav-link" data-key="t-sweet-alerts">
+                                    Xem sản phẩm
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?act=form-sua-san-pham" class="nav-link" data-key="t-nestable-list">
+                                    Tạo sản phẩm
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarBanner" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarBanner">
+                        <i class="bi bi-image"></i> <span data-key="t-advance-ui">Quản lý banner</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarBanner">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="?act=banners" class="nav-link" data-key="t-sweet-alerts">
+                                    Xem banner
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?act=form-sua-banner" class="nav-link" data-key="t-nestable-list">
+                                    Tạo banner
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarTrangThai" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarTrangThai">
+                        <i class="bi bi-gear"></i> <span data-key="t-advance-ui">Quản lý trạng thái</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarTrangThai">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="?act=trang-thai" class="nav-link" data-key="t-sweet-alerts">
+                                    Xem trạng thái
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="?act=form-update-trang-thai" class="nav-link" data-key="t-nestable-list">
+                                    Tạo TrangThai
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </li>
+
 
 
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Bán hàng</span></li>
