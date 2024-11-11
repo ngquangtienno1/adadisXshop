@@ -71,9 +71,9 @@ class NguoiDungController
             if (empty($ngay_sinh)) {
                 $errors['ngay_sinh'] = 'Bạn phải nhập ngày sinh';
             }
-            if (empty($avatar)) {
-                $errors['avatar'] = 'Bạn phải chọn ảnh đại diện';
-            }
+            // if (empty($avatar)) {
+            //     $errors['avatar'] = 'Bạn phải chọn ảnh đại diện';
+            // }
             if (empty($vai_tro)) {
                 $errors['vai_tro'] = 'Vui lòng chọn vai trò người dùng';
             }
@@ -144,13 +144,13 @@ class NguoiDungController
             //-Lớp có ảnh và sẽ sửa ảnh
             //-Lớp có ảnh và k sửa ảnh
 
-            if(isset($hinhAnh) && $hinhAnh['error'] == UPLOAD_ERR_OK){//trường hợp upload ảnh mới
+            if(isset($avatar) && $avatar['error'] == UPLOAD_ERR_OK){//trường hợp upload ảnh mới
                 //nếu có ảnh cũ thì sẽ xóa ảnh cũ trước
                 if(!empty($old_file)){
                     deleteFile($old_file);
                 }
                 //sau khi xóa xong sẽ thêm file mới vào
-                $file_update = uploadFile($hinhAnh, './uploads/');
+                $file_update = uploadFile($avatar, './uploads/');
             }else{//trường hợp upload ảnh mới
                 $file_update = $old_file;
             }
@@ -160,25 +160,46 @@ class NguoiDungController
             // validate
             $errors = [];
 
-            if (empty($ten)) {
-                $errors['ten'] = 'Bạn phải nhập tên liên hệ';
+            if (empty($ten_nguoi_dung)) {
+                $errors['ten_nguoi_dung'] = 'Bạn phải nhập tên nguời dùng';
             }
             if (empty($email)) {
                 $errors['email'] = 'Bạn phải nhập email';
             }
-            if (empty($so_dien_thoai)) {
-                $errors['so_dien_thoai'] = 'Bạn phải nhập số điện thoại liên hệ';
+            if (empty($sdt)) {
+                $errors['sdt'] = 'Bạn phải nhập số điện thoại';
+            }
+            if (empty($dia_chi)) {
+                $errors['dia_chi'] = 'Bạn phải nhập địa chỉ';
+            }
+            if (empty($mat_khau)) {
+                $errors['mat_khau'] = 'Bạn phải nhập mật khẩu';
+            }
+            if (empty($ngay_sinh)) {
+                $errors['ngay_sinh'] = 'Bạn phải nhập ngày sinh';
+            }
+            // if (empty($avatar)) {
+            //     $errors['avatar'] = 'Bạn phải chọn ảnh đại diện';
+            // }
+            if (empty($vai_tro)) {
+                $errors['vai_tro'] = 'Vui lòng chọn vai trò người dùng';
             }
             if (empty($ngay_tao)) {
-                $errors['ngay_tao'] = 'Bạn phải nhập ngày tạo liên hệ';
+                $errors['ngay_tao'] = 'Bạn phải nhập ngày tạo nguời dùng';
+            }
+            if (empty($ngay_cap_nhat)) {
+                $errors['ngay_cap_nhat'] = 'Bạn phải nhập ngày cập nhật nguời dùng';
             }
             if (empty($trang_thai)) {
-                $errors['trang_thai'] = 'Bạn phải nhập ngày tạo liên hệ';
+                $errors['trang_thai'] = 'Bạn phải chọn trạng thái';
             }
+
+
             if (empty($errors)) {
                 # nếu không có lỗi thì thêm dữ liệu
                 $this->modelNguoiDung->updateData($id,$ten_nguoi_dung, $email, $sdt, $dia_chi, $mat_khau, $ngay_sinh, $gioi_tinh, $vai_tro, $ngay_tao, $ngay_cap_nhat, $trang_thai, $file_update);
                 unset($_SESSION['errors']);
+                // echo'theem thanh cong';
                 header('Location: ?act=nguoi-dung');
                 exit();
             } else {

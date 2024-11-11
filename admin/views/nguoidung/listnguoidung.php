@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Liên hệ</title>
+    <title>Người dùng</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -46,12 +46,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lý liên hệ</h4>
+                                <h4 class="mb-sm-0">Quản lý người dùng</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Liên hệ</li>
+                                        <li class="breadcrumb-item active">Người dùng</li>
                                     </ol>
                                 </div>
 
@@ -67,10 +67,10 @@
                                 <!-- Striped Rows -->
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách liên hệ</h4>
+                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách người dùng</h4>
                                         <a href="?act=form-add-nguoi-dung" class="btn btn-soft-success material-shadow-none">
                                             <i class="ri-add-circle-line align-middle me-1"></i>
-                                            Thêm liên hệ
+                                            Thêm người dùng
                                         </a>
                                         <div class="flex-shrink-0">
 
@@ -126,7 +126,6 @@
                                                             </td>
                                                                 <td><?= $nguoiDung['ngay_tao'] ?></td>
                                                                 <td><?= $nguoiDung['ngay_cap_nhat'] ?></td>
-                                                                <td><?= $nguoiDung['ngay_tao'] ?></td>
                                                                 <td><?php
                                                                     if ($nguoiDung['trang_thai'] == 1) { ?>
                                                                         <span class="badge bg-success">Hoạt động</span>

@@ -62,7 +62,7 @@ class BannerController
       if (empty($errors)) {
         // var_dump('ac');die;
         //nếu k có lỗi tiến hành thên banner vào csdl
-        $this->modelBanner->postData($ten_danh_muc_banner, $ngay_tao, $trang_thai, uploadFile($link_hinh_anh, './uploads/'));
+        $this->modelBanner->postData($ten_danh_muc_banner, $ngay_tao, $trang_thai, uploadFile($link_hinh_anh, '/uploads/'));
 
         // var_dump($san_pham_id);die();
         unset($_SESSION['errors']);

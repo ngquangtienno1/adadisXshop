@@ -94,7 +94,8 @@
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
                                                                 <td><?= $banNer['ten_danh_muc_banner'] ?></td>
                                                                 <td>
-                                                                <img src="<?php echo './'. $banNer['link_hinh_anh']; ?>" alt="Banner Image">
+                                                                    
+                                                                <img src="<?=$banNer['link_hinh_anh']; ?>" alt="Banner Image">
                                                                 </td>
 
                                                                 <td><?= $banNer['ngay_tao'] ?></td>
