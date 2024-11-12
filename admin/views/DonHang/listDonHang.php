@@ -79,6 +79,8 @@
         <option value="đã xác nhận">Đã xác nhận</option>
         <option value="đã hủy">Đã hủy</option>
         <option value="hoàn tất">Hoàn tất</option>
+        <option value="hoàn tất">Chờ xác nhận</option>
+        <option value="hoàn tất">Đang vận chuyển</option>
     </select>
     <input class="btn btn-outline-primary" type="submit" value="Tìm kiếm" />
 </form>
@@ -123,11 +125,11 @@
                                 <td><?= ($donHangItem['trang_thai_thanh_toan']) ?></td>
                                 <td>
                                     <div class="hstack gap-3 flex-wrap">
-                                        <a href="?act=form-sua-danh-muc&danh_muc_id=<?= $donHangItem['id_don_hang'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
+                                        <a href="?act=form-sua-don-hang&id_don_hang=<?= $donHangItem['id_don_hang'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
 
                                         <?php if ($donHangItem['trang_thai'] === 'Đã hủy'): ?>
-                                            <form action="?act=xoa-danh-muc" method="POST" onsubmit="return confirm('Bạn có đồng ý xóa không?')">
-                                                <input type="hidden" name="danh_muc_id" value="<?= $donHangItem['id_don_hang'] ?>">
+                                            <form action="?act=delete-don-hang" method="POST" onsubmit="return confirm('Bạn có đồng ý xóa không?')">
+                                                <input type="hidden" name="id_don_hang" value="<?= $donHangItem['id_don_hang'] ?>">
                                                 <button class="link-danger fs-15" style="border: none; background: none;">
                                                     <i class="ri-delete-bin-line"></i>
                                                 </button>

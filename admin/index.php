@@ -119,4 +119,9 @@ match ($act) {
     // Quan ly don hang
     'searchDonHang' => (new DonHangController())->searchDonHang(),
     'don-hang'  => (new DonHangController())->listDonHang(),
+    'delete-don-hang'  => (new DonHangController())->Delete(),
+    'form-sua-don-hang'  => (new DonHangController())->ShowUpdate(),
+    'sua-don-hang'  => (new DonHangController())->handleUpdate(),
+
+
 };
