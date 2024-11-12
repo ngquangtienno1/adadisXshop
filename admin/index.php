@@ -13,6 +13,8 @@ require_once 'controllers/LienHeController.php';
 require_once 'controllers/KhuyenMaiController.php';
 require_once 'controllers/TinTucController.php';
 require_once 'controllers/BannerController.php';
+require_once 'controllers/DonHangController.php';
+
 // require_once 'controllers/SanPhamController.php';
 require_once 'controllers/TrangThaiController.php';
 require_once 'controllers/NguoiDungController.php';
@@ -27,6 +29,8 @@ require_once 'models/LienHe.php';
 require_once 'models/KhuyenMai.php';
 require_once 'models/TinTuc.php';
 require_once 'models/Banner.php';
+require_once 'models/DonHang.php';
+
 // require_once 'models/SanPham.php';
 require_once 'models/TrangThai.php';
 require_once 'models/NguoiDung.php';
@@ -110,5 +114,8 @@ match ($act) {
     'form-update-nguoi-dung'      => (new NguoiDungController())->edit(),
     'sua-nguoi-dung'       => (new NguoiDungController())->update(),
     'xoa-nguoi-dung'       => (new NguoiDungController())->destroy(),
- 
+
+
+    // Quan ly don hang
+    'don-hang'  => (new DonHangController())->listDonHang(),
 };
