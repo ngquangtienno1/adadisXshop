@@ -53,32 +53,33 @@ class DonHang
     return $stmt->fetchAll();  // Trả về kết quả tìm kiếm
   }
 
-  public function deleteDonHang($id) {
+  public function deleteDonHang($id)
+  {
     try {
-        // Sử dụng câu lệnh SQL với tham số placeholder
-        $sql = "DELETE FROM don_hangs WHERE id_don_hang = :id_don_hang";
+      // Sử dụng câu lệnh SQL với tham số placeholder
+      $sql = "DELETE FROM don_hangs WHERE id_don_hang = :id_don_hang";
 
-        // Chuẩn bị câu lệnh
-        $stmt = $this->conn->prepare($sql);
+      // Chuẩn bị câu lệnh
+      $stmt = $this->conn->prepare($sql);
 
-        // Gán giá trị cho tham số
-        $stmt->bindParam(':id_don_hang', $id);
+      // Gán giá trị cho tham số
+      $stmt->bindParam(':id_don_hang', $id);
 
-        // Thực thi câu lệnh
-        $stmt->execute();
+      // Thực thi câu lệnh
+      $stmt->execute();
 
-        return true;
-
+      return true;
     } catch (PDOException $e) {
-        echo 'Error: ' . $e->getMessage();
-        return false; // Trả về false nếu có lỗi
+      echo 'Error: ' . $e->getMessage();
+      return false; // Trả về false nếu có lỗi
     }
-}
+  }
 
 
 
-public function donHangShow($id) {
-  try {
+  public function donHangShow($id)
+  {
+    try {
       // Sử dụng câu lệnh SQL với tham số placeholder
       $sql = "SELECT don_hangs.*, trang_thai_don_hangs.trang_thai
                     FROM don_hangs
@@ -94,35 +95,33 @@ public function donHangShow($id) {
       $stmt->execute();
 
       return $stmt->fetch();
-
-  } catch (PDOException $e) {
+    } catch (PDOException $e) {
       echo 'Error: ' . $e->getMessage();
       return false; // Trả về false nếu có lỗi
+    }
   }
-}
 
-public function updateDonHang($id, $trang_thai) {
-  try {
-      // Sử dụng câu lệnh UPDATE để cập nhật dữ liệu
-      $sql = "UPDATE `don_hangs` SET `trang_thai_don_hang` = 'id' WHERE `don_hangs`.`id_don_hang` = $id;";
+  public function updateDonHang($id, $trang_thai)
+  {
+    try {
+      // Sử dụng câu lệnh UPDATE để cập nhật trạng thái đơn hàng
+      $sql = "UPDATE `don_hangs` SET `trang_thai_don_hang` = :trang_thai WHERE `id_don_hang` = :id_don_hang;";
 
+      // Chuẩn bị câu lệnh SQL
       $stmt = $this->conn->prepare($sql);
 
       // Liên kết các giá trị với các placeholder trong câu lệnh SQL
-
       $stmt->bindParam(':trang_thai', $trang_thai);
       $stmt->bindParam(':id_don_hang', $id);
 
       // Thực hiện câu lệnh
       $stmt->execute();
 
-      // Trả về true để xác nhận cập nhật thành công
-      return true;
-
-  } catch (PDOException $e) {
+      // Kiểm tra số dòng bị ảnh hưởng để xác nhận cập nhật
+      return $stmt->rowCount() > 0; // Trả về true nếu có ít nhất 1 bản ghi được cập nhật
+    } catch (PDOException $e) {
       echo 'Error: ' . $e->getMessage();
       return false;
+    }
   }
-}
-
 }

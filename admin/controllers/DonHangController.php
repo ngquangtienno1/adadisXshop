@@ -70,28 +70,30 @@ class DonHangController
   public function handleUpdate()
   {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $id = isset($_POST['id']) ? intval($_POST['id']) : null;
+      $trang_thai = trim($_POST['trang_thai']);
 
-      $id = $_POST['id'];
-      $trang_thai = $_POST['trang_thai'];
-
-      // var_dump($trang_thai);
-
-      //Validate
+      // Validate
       $Error = [];
       if (empty($trang_thai)) {
         $Error['trang_thai'] = 'Trạng thái là bắt buộc';
       }
 
       if (empty($Error)) {
-        $this->modelDonHang->updateDonHang($id, $trang_thai);
-        unset($_SESSION['Error']);
-        // Thêm đoạn mã HTML và JavaScript để hiển thị thông báo
-        // echo "Thêm thành công";
+        // Thực hiện cập nhật trạng thái đơn hàng
+        if ($this->modelDonHang->updateDonHang($id, $trang_thai)) {
+          unset($_SESSION['Error']);
+          $_SESSION['message'] = 'Cập nhật trạng thái thành công!';
+        } else {
+          $_SESSION['message'] = 'Cập nhật thất bại. Vui lòng thử lại!';
+        }
+
+        // Điều hướng về danh sách đơn hàng
         header('Location: ?act=don-hang');
         exit();
       } else {
         $_SESSION['Error'] = $Error;
-        header('Location: ?act=form-sua-don-hang'); // Sửa lại khoảng trắng
+        header("Location: ?act=form-sua-don-hang&id_don_hang=$id");
         exit();
       }
     }

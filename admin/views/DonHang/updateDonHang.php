@@ -81,77 +81,88 @@
                   </div><!-- end card header -->
                   <div class="card-body">
                     <!-- <p class="text-muted">Use <code>form-floating</code> class to enable floating labels with Bootstrap’s textual form fields.</p> -->
-                    <div class="live-preview">
+                    <div class="container my-5">
+                    <form action="?act=sua-don-hang" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?= $donHangShow['id_don_hang'] ?>">
 
-
-
-
-                      <form action="?act=sua-don-hang" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="id" value="<?= $donHangShow['id_don_hang'] ?>">
-                        <div class="row g-3">
-                          <div class="col-lg-4">
-                            <div class="form-floating">
-                              <input type="text" class="form-control" name="id_don_hang" value="<?= $donHangShow['id_don_hang'] ?>" disabled>
-                              <label for="ten_danh_muc">Mã đơn hàng</label>
-                            </div>
-                          </div>
-
-                          <div class="col-lg-4">
-                            <div class="form-floating">
-                              <input type="text" class="form-control" name="mo_ta" value="<?= $donHangShow['ngay_dat_hang'] ?>" disabled>
-                              <label for="mo_ta">Ngày đặt hàng</label>
-                            </div>
-                          </div>
-
-
-                          <div class="col-lg-4">
-                            <div class="form-floating">
-                              <input type="text" class="form-control" name="mo_ta" value="<?= $donHangShow['phuong_thuc_thanh_toan'] ?>" disabled>
-                              <label for="mo_ta">Phương thức thanh toán</label>
-                            </div>
-                          </div>
-
-                          <div class="col-lg-4">
-                            <div class="form-floating">
-                              <input type="text" class="form-control" name="mo_ta" value="<?= $donHangShow['trang_thai_thanh_toan'] ?>" disabled>
-                              <label for="mo_ta">Trạng thái thanh toán</label>
-                            </div>
-                          </div>
-
-
-
-
-                          <div class="col-lg-4">
-                            <div class="mb-3">
-                              <label for="ForminputState" class="form-label">Trạng thái</label>
-                              <select name="trang_thai" id="ForminputState" class="form-select">
-                                <option value="">Tất cả trạng thái</option>
-                                <option value="chưa xác nhận" <?= isset($donHangShow['trang_thai']) && $donHangShow['trang_thai'] == 'Chưa xác nhận' ? 'selected' : '' ?>>Chưa xác nhận</option>
-                                <option value="đã xác nhận" <?= isset($donHangShow['trang_thai']) && $donHangShow['trang_thai'] == 'Đã xác nhận' ? 'selected' : '' ?>>Đã xác nhận</option>
-                                <option value="đã hủy" <?= isset($donHangShow['trang_thai']) && $donHangShow['trang_thai'] == 'Đã hủy' ? 'selected' : '' ?>>Đã hủy</option>
-                                <option value="hoàn tất" <?= isset($donHangShow['trang_thai']) && $donHangShow['trang_thai'] == 'Hoàn tất' ? 'selected' : '' ?>>Hoàn tất</option>
-                                <option value="Chờ xác nhận" <?= isset($donHangShow['trang_thai']) && $donHangShow['trang_thai'] == 'Chờ xác nhận' ? 'selected' : '' ?>>Chờ xác nhận</option>
-                                <option value="Đang vận chuyển" <?= isset($donHangShow['trang_thai']) && $donHangShow['trang_thai'] == 'Đang vận chuyển' ? 'selected' : '' ?>>Đang vận chuyển</option>
-                              </select>
-                              <span class="text-danger">
-                                <?= !empty($_SESSION["errors"]['trang_thai']) ? $_SESSION["errors"]['trang_thai'] : '' ?>
-                              </span>
-                            </div>
-                          </div>
-
-
-
-                        </div>
-
-
-
-                        <div class="col-lg-12">
-                          <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                          </div>
-                        </div>
+    <!-- Thẻ card cho thông tin đơn hàng -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-header  text-white">
+            <h5 class="mb-0">Thông tin đơn hàng</h5>
+        </div>
+        <div class="card-body">
+            <div class="row g-3">
+                <!-- Mã đơn hàng -->
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input type="text" class="form-control form-control-lg" name="id_don_hang" value="<?= $donHangShow['id_don_hang'] ?>" disabled>
+                        <label for="id_don_hang">Mã đơn hàng</label>
                     </div>
-                    </form>
+                </div>
+
+                <!-- Ngày đặt hàng -->
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input type="text" class="form-control form-control-lg" name="mo_ta" value="<?= $donHangShow['ngay_dat_hang'] ?>" disabled>
+                        <label for="mo_ta">Ngày đặt hàng</label>
+                    </div>
+                </div>
+
+                <!-- Phương thức thanh toán -->
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input type="text" class="form-control form-control-lg" name="phuong_thuc_thanh_toan" value="<?= $donHangShow['phuong_thuc_thanh_toan'] ?>" disabled>
+                        <label for="phuong_thuc_thanh_toan">Phương thức thanh toán</label>
+                    </div>
+                </div>
+
+                <!-- Trạng thái thanh toán -->
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input type="text" class="form-control form-control-lg" name="trang_thai_thanh_toan" value="<?= $donHangShow['trang_thai_thanh_toan'] ?>" disabled>
+                        <label for="trang_thai_thanh_toan">Trạng thái thanh toán</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thẻ card cho trạng thái đơn hàng -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-info text-white">
+            <h5 class="mb-0">Trạng thái đơn hàng</h5>
+        </div>
+        <div class="card-body">
+            <div class="row g-3">
+                <!-- Trạng thái đơn hàng -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="ForminputState" class="form-label">Trạng thái đơn hàng</label>
+                        <select name="trang_thai" id="ForminputState" class="form-select form-select-lg">
+                            <option value="16" <?= $donHangShow['trang_thai'] == 'Chưa xác nhận' ? 'selected' : '' ?>>Chưa xác nhận</option>
+                            <option value="12" <?= $donHangShow['trang_thai'] == 'Đã xác nhận' ? 'selected' : '' ?>>Đã xác nhận</option>
+                            <option value="18" <?= $donHangShow['trang_thai'] == 'Đã hủy' ? 'selected' : '' ?>>Đã hủy</option>
+                            <option value="19" <?= $donHangShow['trang_thai'] == 'Đã hoàn thành' ? 'selected' : '' ?>>Đã hoàn thành</option>
+                            <option value="14" <?= $donHangShow['trang_thai'] == 'Chờ xác nhận' ? 'selected' : '' ?>>Chờ xác nhận</option>
+                            <option value="13" <?= $donHangShow['trang_thai'] == 'Đang vận chuyển' ? 'selected' : '' ?>>Đang vận chuyển</option>
+                        </select>
+                        <?php if (!empty($_SESSION["errors"]['trang_thai'])): ?>
+                            <span class="text-danger"><?= $_SESSION["errors"]['trang_thai'] ?></span>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nút Submit -->
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-lg w-100">Cập nhật đơn hàng</button>
+    </div>
+</form>
+
+</div>
+
 
                   </div>
                   <div class="d-none code-view">
