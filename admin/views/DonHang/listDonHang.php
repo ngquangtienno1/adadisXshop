@@ -66,64 +66,86 @@
 
               <div class="h-100">
                 <div class="card">
-                  <div class="card-header align-items-center d-flex  justify-content-between">
-                    <!-- Search Form -->
-                    <form class="d-flex me-3" action="?act=listProduct" role="search">
-                      <input type="search" class="form-control me-2" placeholder="Search..." aria-label="Search" name="search" />
-                      <input class="btn btn-outline-primary" type="submit" value="Search">
-                    </form>
+                <div class="card-header align-items-center d-flex justify-content-between">
 
-                    <div><a href="?act=form-danh-muc" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i>Xem chi tiết</a></div>
 
-                  </div><!-- end card header -->
 
-                  <div class="card-body">
-                    <!-- <p class="text-muted">Use <code>table</code> class to show bootstrap-based default table.</p> -->
-                    <div class="live-preview">
-                      <div class="table-responsive">
-                        <table class="table table-striped table-nowrap align-middle mb-0">
-                          <thead>
+    <!-- Search Form -->
+    <form class="d-flex me-3" action="index.php?act=searchDonHang" method="POST" role="search">
+    <input type="search" class="form-control me-2" placeholder="Tìm mã đơn hàng..." aria-label="Search" name="search" />
+    <select class="form-control me-2" name="status">
+        <option value="">Tất cả trạng thái</option>
+        <option value="chưa xác nhận">Chưa xác nhận</option>
+        <option value="đã xác nhận">Đã xác nhận</option>
+        <option value="đã hủy">Đã hủy</option>
+        <option value="hoàn tất">Hoàn tất</option>
+    </select>
+    <input class="btn btn-outline-primary" type="submit" value="Tìm kiếm" />
+</form>
+
+
+
+
+
+
+
+    <div>
+        <a href="?act=" class="btn btn-soft-success material-shadow-none">
+            <i class="ri-add-circle-line align-middle me-1"></i>Xem chi tiết
+        </a>
+    </div>
+</div><!-- end card header -->
+
+<div class="card-body">
+    <div class="live-preview">
+        <div class="table-responsive">
+            <table class="table table-striped table-nowrap align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Mã đơn hàng</th>
+                        <th scope="col">Ngày đặt</th>
+                        <th scope="col">Trạng thái đơn hàng</th>
+                        <th scope="col">Hình Thức Thanh Toán</th>
+                        <th scope="col">Trạng Thái Thanh Toán</th>
+                        <th scope="col">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (!empty($donHang)): ?>
+                        <?php foreach ($donHang as $index => $donHangItem): ?>
                             <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">Mã đơn hàng</th>
-                              <th scope="col">Ngày đặt</th>
-                              <th scope="col">Trạng thái đơn hàng</th>
-                              <th scope="col">Hình Thức Thanh Toán</th>
-                              <th scope="col">Trạng Thái Thanh Toán</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <?php foreach ($donHang as $index => $donHangItem) { ?>
-                              <tr>
                                 <td class="fw-medium"><?= $index + 1 ?></td>
-                                <td><?= $donHangItem['id_don_hang'] ?></td>
-                                <td><?= $donHangItem['ngay_dat_hang'] ?></td>
-                                <td><?= $donHangItem['trang_thai'] ?></td>
-                                <td><?= $donHangItem['phuong_thuc_thanh_toan'] ?></td>
-                                <td><?= $donHangItem['trang_thai'] ?></td>
-
-
+                                <td><?= ($donHangItem['id_don_hang']) ?></td>
+                                <td><?= ($donHangItem['ngay_dat_hang']) ?></td>
+                                <td><?= ($donHangItem['trang_thai']) ?></td>
+                                <td><?= ($donHangItem['phuong_thuc_thanh_toan']) ?></td>
+                                <td><?= ($donHangItem['trang_thai_thanh_toan']) ?></td>
                                 <td>
-                                  <div class="hstack gap-3 flex-wrap">
-                                    <a href="?act=form-sua-danh-muc&danh_muc_id=<?= $donHangItem['id_don_hang'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
+                                    <div class="hstack gap-3 flex-wrap">
+                                        <a href="?act=form-sua-danh-muc&danh_muc_id=<?= $donHangItem['id_don_hang'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
 
-                                    <?php if ($donHangItem['trang_thai'] === 'đã hủy') { ?>
-                                      <form action="?act=xoa-danh-muc" method="POST" onsubmit="return confirm('Bạn có đồng ý xóa không?')">
-                                        <input type="hidden" name="danh_muc_id" value="<?= $donHangItem['id_don_hang'] ?>">
-                                        <button class="link-danger fs-15" style="border: none; background: none;">
-                                          <i class="ri-delete-bin-line"></i>
-                                        </button>
-                                      </form>
-                                    <?php } ?>
-                                  </div>
+                                        <?php if ($donHangItem['trang_thai'] === 'Đã hủy'): ?>
+                                            <form action="?act=xoa-danh-muc" method="POST" onsubmit="return confirm('Bạn có đồng ý xóa không?')">
+                                                <input type="hidden" name="danh_muc_id" value="<?= $donHangItem['id_don_hang'] ?>">
+                                                <button class="link-danger fs-15" style="border: none; background: none;">
+                                                    <i class="ri-delete-bin-line"></i>
+                                                </button>
+                                            </form>
+                                        <?php endif; ?>
+                                    </div>
                                 </td>
-                              </tr>
-                            <?php } ?>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr><td colspan="7" class="text-center">Không tìm thấy kết quả.</td></tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
 
                     <div class="d-none code-view">
                       <pre class="language-markup" style="height: 275px;"><code>&lt;table class=&quot;table table-nowrap&quot;&gt;

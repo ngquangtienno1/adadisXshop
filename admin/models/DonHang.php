@@ -1,38 +1,55 @@
-<?php 
+<?php
 
-class DonHang{
+class DonHang
+{
 
-    public $conn;
+  public $conn;
 
+  // Kết nối cơ sở dữ liệu
+  public function __construct()
+  {
+    $this->conn = connectDB();  // Giả sử connectDB() là một hàm kết nối cơ sở dữ liệu đã được định nghĩa ở nơi khác
+  }
 
-    // Connect database 
+  // Lấy tất cả đơn hàng
+  public function getAll()
+  {
+    try {
+      $sql = "SELECT don_hangs.*, trang_thai_don_hangs.trang_thai
+                    FROM don_hangs
+                    JOIN trang_thai_don_hangs ON don_hangs.trang_thai_don_hang = trang_thai_don_hangs.id";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute();
+      return $stmt->fetchAll();
+    } catch (PDOException $e) {
+      echo "Error: " . $e->getMessage();
+    }
+  }
 
-    public function __construct()
-    {
-        $this->conn= connectDB();
+  // Tìm kiếm đơn hàng theo mã đơn và trạng thái
+  public function searchOrders($search, $status)
+  {
+
+    $query = "SELECT don_hangs.*, trang_thai_don_hangs.trang_thai FROM don_hangs JOIN trang_thai_don_hangs ON don_hangs.trang_thai_don_hang = trang_thai_don_hangs.id ";
+
+    if ($search) {
+      $query .= " AND id_don_hang LIKE :search";
+    }
+    if ($status) {
+      $query .= " AND trang_thai = :status";
     }
 
-    public function getAll(){
-        try{
-            $sql = "SELECT don_hangs.*, trang_thai_don_hangs.trang_thai 
-            FROM don_hangs 
-            JOIN trang_thai_don_hangs ON don_hangs.trang_thai_don_hang = trang_thai_don_hangs.id";
-            $stmt = $this->conn->prepare($sql);
+    $stmt = $this->conn->prepare($query);
 
-            $stmt->execute();
-
-            return $stmt->fetchAll();
-
-        }
-        catch(PDOException $e){
-            echo "Error".$e->getMessage();
-        }
+    if ($search) {
+      $stmt->bindValue(':search', "%$search%");
+    }
+    if ($status) {
+      $stmt->bindValue(':status', $status);
     }
 
+    $stmt->execute();
 
-
-
+    return $stmt->fetchAll();  // Trả về kết quả tìm kiếm
+  }
 }
-
-
-?>

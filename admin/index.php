@@ -117,5 +117,6 @@ match ($act) {
 
 
     // Quan ly don hang
+    'searchDonHang' => (new DonHangController())->searchDonHang(),
     'don-hang'  => (new DonHangController())->listDonHang(),
 };
