@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Danh mục banner | NN Shop</title>
+    <title>Danh mục Sản phẩm | NN Shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -46,12 +46,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lý Banner</h4>
+                                <h4 class="mb-sm-0">Quản lý Sản phẩm</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Danh mục banner</li>
+                                        <li class="breadcrumb-item active">Danh sách Sản phẩm</li>
                                     </ol>
                                 </div>
 
@@ -65,8 +65,8 @@
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách danh mục banner</h4>
-                                        <a href="?act=form-them-banner" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i> Thêm danh mục banner</a>
+                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách Sản phẩm</h4>
+                                        <a href="?act=form-them-san-pham" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i> Thêm sản phẩm</a>
 
                                     </div><!-- end card header -->
 
@@ -78,50 +78,62 @@
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">STT</th>
-                                                            <th scope="col">Tên danh mục banner</th>
-                                                            <th scope="col">Ảnh</th>
-
-                                                            <th scope="col">Ngày tạo</th>
+                                                            <th scope="col">Tên sản phẩm</th>
+                                                            <th scope="col">Giá tiền</th>
+                                                            <th scope="col">Danh Mục</th>
+                                                            <th scope="col">Hình ảnh</th>
+                                                            <th scope="col">Số lượng</th>
 
                                                             <th scope="col">Trạng thái</th>
-
+                                                           
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php foreach ($banNers as $index => $banNer) { ?>
+                                                        <?php foreach ($listSanPham as $index => $SanPhams) : ?>
                                                             <tr>
                                                                 <td class="fw-medium"><?= $index + 1 ?></td>
-                                                                <td><?= $banNer['ten_danh_muc_banner'] ?></td>
+                                                                <td><?= $SanPhams['ten_san_pham'] ?></td>
+                                                                <td><?= $SanPhams['gia_ban'] ?></td>
+                                                                <td><?= $SanPhams['ten_danh_muc'] ?></td>
+                                                               
                                                                 <td>
-                                                                    <img src="<?=BASE_URL . $banNer['link_hinh_anh'] ?>" style="width: 100px" alt=""
+                                                                    <img src="<?=BASE_URL . $SanPhams['hinh_anh'] ?>" style="width: 100px" alt=""
                                                                         onerror="this.onerror=null; this.src='https://cdn.mobilecity.vn/mobilecity-vn/images/2021/12/tong-hop-meo-giup-ban-chup-nhung-buc-anh-dep-hon-ve-thu-cung-cua-minh.jpg.webp'">
                                                                 </td>
-
-                                                                <td><?= $banNer['ngay_tao'] ?></td>
-
+                                                                <td><?= $SanPhams['so_luong'] ?></td>
                                                                 <td><?php
-                                                                    if ($banNer['trang_thai'] == 1) { ?>
-                                                                        <span class="badge bg-success">Đăng</span>
+                                                                    if ($SanPhams['trang_thai'] == 1) { ?>
+                                                                        <span class="badge bg-success">Còn bán</span>
                                                                     <?php } else { ?>
-                                                                        <span class="badge bg-danger">Không đăng</span>
+                                                                        <span class="badge bg-danger">Dừng bán</span>
 
                                                                     <?php }
                                                                     ?>
+
+
                                                                 </td>
+                                                               
+                                                               
+                                                               
+                                                               
+                                                               
+
+
+
                                                                 <td>
                                                                     <div class="hstack gap-3 flex-wrap">
-                                                                        <a href="?act=form-sua-banner&id_danh_muc_banner=<?= $banNer['id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
-                                                                        <form action="?act=xoa-banner" method="POST" enctype="multipart/form-data" onsubmit="return confirm('Bạn có đồng ý xóa không?')">
-                                                                            <input type="hidden" name="id_danh_muc_banner" value="<?= $banNer['id'] ?>">
-                                                                            <button type="submit" class="link-danger fs-15" style="border : none ; background: none;"><i class="ri-delete-bin-line"></i></button>
+                                                                        <a href="?act=form-sua-san-pham&id_san_pham=<?= $SanPhams['id'] ?>" class="link-success fs-15"><i class="ri-edit-2-line"></i></a>
+                                                                        <form action="?act=xoa-san-pham&id_san_pham=<?= $SanPhams['id'] ?>" method="POST"  enctype="multipart/form-data" onsubmit="return confirm('Bạn có đồng ý xóa không?')">
+                                                                            <input type="hidden" name="id_san_pham" value="<?= $SanPhams['id'] ?>">
+                                                                        <button type="submit" class="link-danger fs-15" style="border : none ; background: none;" ><i class="ri-delete-bin-line"></i></button>
 
                                                                         </form>
-
+                                                                       
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                        <?php } ?>
+                                                        <?php endforeach; ?>
                                                     </tbody>
                                                 </table>
                                             </div>

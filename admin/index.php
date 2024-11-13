@@ -15,7 +15,7 @@ require_once 'controllers/TinTucController.php';
 require_once 'controllers/BannerController.php';
 require_once 'controllers/DonHangController.php';
 
-// require_once 'controllers/SanPhamController.php';
+require_once 'controllers/SanPhamController.php';
 require_once 'controllers/TrangThaiController.php';
 require_once 'controllers/NguoiDungController.php';
 
@@ -31,7 +31,7 @@ require_once 'models/TinTuc.php';
 require_once 'models/Banner.php';
 require_once 'models/DonHang.php';
 
-// require_once 'models/SanPham.php';
+require_once 'models/SanPham.php';
 require_once 'models/TrangThai.php';
 require_once 'models/NguoiDung.php';
 
@@ -90,14 +90,14 @@ match ($act) {
     'sua-banner' => (new BannerController())->update(),
     'xoa-banner' => (new BannerController())->destroy(),
 
-    // //quản lý sản phẩm
-    // 'san-phams' =>(new SanPhamController())->danhSachSanPham(),
-    // 'form-them-san-pham' =>(new SanPhamController())->formAddSanPham(),
-    // 'them-san-pham' =>(new SanPhamController())->postAddSanPham(),
-    // 'form-sua-san-pham' =>(new SanPhamController())->formEditSanPham(),
-    // 'sua-san-pham' =>(new SanPhamController())->postEditSanPham(),
-    // 'sua-album-anh-san-pham' =>(new SanPhamController())->postEditAnhSanPham(),
-    // 'xoa-san-pham' =>(new SanPhamController())->deleteSanPham(),
+    //quản lý sản phẩm
+    'san-phams' =>(new SanPhamController())->danhSachSanPham(),
+    'form-them-san-pham' =>(new SanPhamController())->formAddSanPham(),
+    'them-san-pham' =>(new SanPhamController())->postAddSanPham(),
+    'form-sua-san-pham' =>(new SanPhamController())->formEditSanPham(),
+    'sua-san-pham' =>(new SanPhamController())->postEditSanPham(),
+    'sua-album-anh-san-pham' =>(new SanPhamController())->postEditAnhSanPham(),
+    'xoa-san-pham' =>(new SanPhamController())->deleteSanPham(),
 
     ///Quản lý trạng thái
     'trang-thai'           => (new TrangThaiController())->index(),
@@ -119,4 +119,9 @@ match ($act) {
     // Quan ly don hang
     'searchDonHang' => (new DonHangController())->searchDonHang(),
     'don-hang'  => (new DonHangController())->listDonHang(),
+    'delete-don-hang'  => (new DonHangController())->Delete(),
+    'form-sua-don-hang'  => (new DonHangController())->ShowUpdate(),
+    'sua-don-hang'  => (new DonHangController())->handleUpdate(),
+
+
 };
